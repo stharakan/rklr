@@ -6,6 +6,7 @@ function [T_nys,T_ens,T_dns,T_sgd] = run_rc_experiments(dataset,sigma,lambda,eff
 
 fprintf('Beginning preconditioning experiments on %s dataset with sigma %5.3f and lambda %5.3f at rank %d\n',dataset,sigma,lambda,eff_rank);
 ws = 4;
+set_local_env;
 
 % Load data
 data = dataload(dataset);

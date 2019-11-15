@@ -1,5 +1,5 @@
 function [T] = run_dns(p_flag,ranks,dname,sigma,lambda,ws,varargin)
-
+set_local_env;
 % Parameters
 ll = length(varargin);
 lam_flag = lambda < 0;

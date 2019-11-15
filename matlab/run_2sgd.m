@@ -2,6 +2,7 @@ function [T] = run_2sgd(p_flag,ranks,dname,sigma,lambda,varargin)
 
 %close all; clear; clc
 load_all = true;
+set_local_env;
 
 % Parameters
 iters = 50;

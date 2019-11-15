@@ -5,6 +5,7 @@ function [T_cg, T_pcg] = run_prec_experiments(dataset,sigma,lambda,rank)
 %allowing comparison of the different inversion methods
 
 fprintf('Beginning preconditioning experiments on %s dataset with sigma %5.3f and lambda %5.3f at rank %d\n',dataset,sigma,lambda,rank);
+set_local_env;
 
 % Load data
 data = dataload(dataset);

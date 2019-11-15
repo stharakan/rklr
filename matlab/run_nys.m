@@ -1,5 +1,5 @@
 function [T] = run_nys(p_flag,ranks,dname,sigma,lambda,ws,varargin)
-
+set_local_env;
 % Parameters
 ll = length(varargin);
 lam_flag = lambda < 0;

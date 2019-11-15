@@ -4,6 +4,7 @@ function [T] = run_N_experiments(dataset,sigma,lambda)
 % Finally, it should print a table of N,rank,accuracy,time.
 
 fprintf('Beginning N experiments on %s dataset with sigma %5.3f and lambda %5.3f\n',dataset,sigma,lambda);
+set_local_env;
 
 % Load data
 data = dataload(dataset);

@@ -1,5 +1,5 @@
 function [] = run_w2sgd(p_flag,ranks,dname,sigma,lambda,ws,ws_iters,varargin)
-
+set_local_env;
 %close all; clear; clc
 load_all = true;
 
@@ -47,7 +47,7 @@ for ra = 1:length(ranks)
 	%set rank
 	rank = ranks(ra);
 	if p_flag
-		diary(['./../runfiles/10m/',dname,'.2sgd.r',num2str(rank),'.out']);
+		diary([runfile_dir,'/10m/',dname,'.2sgd.r',num2str(rank),'.out']);
     end
 
 	% set other parameters
@@ -82,7 +82,7 @@ for ra = 1:length(ranks)
     % warmstart
     if ws
         if p_flag
-            diary(['./../runfiles/10m/',dname,'.w2sgd.r',num2str(rank), ...
+            diary([runfile_dir,'/10m/',dname,'.w2sgd.r',num2str(rank), ...
 							'.i',num2str(ws_iters),'.out']);
         end
 				disp(['WARMSTART RUN WITH ',num2str(ws_iters),' ITERS']);
@@ -226,7 +226,7 @@ for ra = 1:length(ranks)
         
         
         eff_rank = rank * 4;
-        tab_file = ['eff_rank',num2str(eff_rank)];
+        tab_file = [runfile_dir,dname,'-eff_rank',num2str(eff_rank)];
         
         s = ['\n \\multirow{8}{*}{\\begin{tabular}[c]{@{}c@{}}2SGD \\\\ $\\rank = ', ...
             num2str(rank),', w_i = ',num2str(ws_iters),' $ \\end{tabular}}     & Iter   & $E_{tst}$  & $T$  & Iter', ...
