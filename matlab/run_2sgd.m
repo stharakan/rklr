@@ -47,7 +47,7 @@ for r = 1:length(ranks)
 	%set rank
 	rank = ranks(r);
 	if p_flag
-		diary(['./../runfiles/10m/',dname,'.2sgd.r',num2str(rank),'.out']);
+		diary([runfile_dir,'10m/',dname,'.2sgd.r',num2str(rank),'.out']);
 	end
 
 	% set other parameters
@@ -149,7 +149,7 @@ for r = 1:length(ranks)
 		diary off
 		
 		eff_rank = rank * 4;
-		tab_file = ['eff_rank',num2str(eff_rank)];
+		tab_file = [runfile_dir,dname,'-eff_rank',num2str(eff_rank)];
 
 		s = ['\n \\multirow{7}{*}{\\begin{tabular}[c]{@{}c@{}}2SGD \\\\ $\\rank = ', ...
 			num2str(rank),' $ \\end{tabular}}     & Iter   & $E_{tst}$  & $T$  & Iter', ... 
@@ -168,4 +168,6 @@ tot_time_mat = tot_time_mat(restriction);
 test_error_mat = test_error_mat(restriction);
 T = table( restriction(:), test_error_mat(:), tot_time_mat(:),'VariableNames',...
     {'Iters_T','Errs_T','Time_T'});
+
+
 end

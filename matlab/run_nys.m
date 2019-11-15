@@ -50,7 +50,7 @@ for r = 1:length(ranks)
 
 
 	if p_flag
-		diary(['./../runfiles/10m/',dname,'.nys.r',num2str(rank),'.out']);
+		diary([runfile_dir,'10m/',dname,'.nys.r',num2str(rank),'.out']);
 	end
 	disp(['Decomp took ',num2str(KA.decomp_time),' seconds']);
 	kerr = KA.matvec_errors(10);
@@ -93,7 +93,7 @@ for r = 1:length(ranks)
 
 	if ws_flag
 		if p_flag
-			diary(['./../runfiles/10m/',dname,'.nys.r',num2str(rank),'.w4.out']);
+			diary([runfile_dir,'10m/',dname,'.nys.r',num2str(rank),'.w4.out']);
 		end
 		disp(['Decomp took ',num2str(KA.decomp_time),' seconds']);
 		disp(['Decomp err ', num2str(kerr)]);
@@ -128,7 +128,7 @@ for r = 1:length(ranks)
 	if p_flag
 	
 		eff_rank = KA.rnk;
-		tab_file = ['eff_rank',num2str(eff_rank)];
+		tab_file = [runfile_dir,dname,'-eff_rank',num2str(eff_rank)];
 		if ~ws_flag
 			wstimes = [];
 			wserrs = [];

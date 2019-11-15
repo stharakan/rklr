@@ -13,3 +13,6 @@ else
     libsvm_dir = '/work/03158/tharakan/lib/libsvm-master/matlab';
 end
 addpath(libsvm_dir);
+
+runfile_dir='./../runfiles/'
+

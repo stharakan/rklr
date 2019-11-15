@@ -57,7 +57,7 @@ end
 
 T = table(NNs,ranks,timings,errors,'VariableNames',...
     {'NN','rank','Time','Err'});
-fname = [dataset,'.nn-exp.mat'];
+fname = [runfile_dir,'stats/',dataset,'.nn-exp.mat'];
 save(fname,'T','options','sigma','dataset');
 
 %scatter(T.Time, 1 - T.Err,T.NN.*500./NN, T.rank,'filled');

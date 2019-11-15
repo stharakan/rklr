@@ -58,7 +58,7 @@ for r = 1:length(ranks)
 
 	% Record in a diary
 	if p_flag
-		diary(['./../runfiles/10m/',dname,'.dns.r',num2str(rank),'.b',num2str(b),'.out']);
+		diary([runfile_dir,'10m/',dname,'.dns.r',num2str(rank),'.b',num2str(b),'.out']);
 	end
 
 	% print decomp info
@@ -96,7 +96,7 @@ for r = 1:length(ranks)
 	if ws_flag
 		% turn on diary
 		if p_flag
-			diary(['./../runfiles/10m/',dname,'.dns.r',num2str(rank),'.b',num2str(b),'.w4.out']);
+			diary([runfile_dir,'10m/',dname,'.dns.r',num2str(rank),'.b',num2str(b),'.w4.out']);
 		end
 
 		% print decomp info
@@ -133,7 +133,7 @@ for r = 1:length(ranks)
 	if p_flag
 	
 		eff_rank = KA.mm;
-		tab_file = ['eff_rank',num2str(eff_rank)];
+		tab_file = [runfile_dir,dname,'-eff_rank',num2str(eff_rank)];
 		
 		s = ['\n \\multirow{6}{*}{\\begin{tabular}[c]{@{}c@{}}DiagNyst \\\\ $\\rank = ', ...
 			num2str(KA.rnk),', b = ',num2str(KA.bb),' $ \\end{tabular}}     & Iter   ', ...
