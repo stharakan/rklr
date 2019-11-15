@@ -1,0 +1,53 @@
+/work/03158/tharakan/research/rklr
+MATLAB is selecting SOFTWARE OPENGL rendering.
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+              R2019a Update 1 (9.6.0.1099231) 64-bit (glnxa64)
+                               April 12, 2019
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+Oneshot took 122.4335 seconds
+Decomp err 0.20489
+Time to decompose inner matrix: 27.7496
+
+lambdas =
+
+   1.0e-05 *
+
+    0.1014    0.1247    0.1987    0.4314
+
+Testing lambda 1
+Lambda = 1.0139e-06
+Extra testing time = 2.7922
+Percent error: 0.037743
+Time taken: 413.9876
+-----------------------
+Testing lambda 2
+Lambda = 1.2473e-06
+Extra testing time = 2.3362
+Percent error: 0.039301
+Time taken: 404.9462
+-----------------------
+Testing lambda 3
+Lambda = 1.9872e-06
+Extra testing time = 2.7379
+Percent error: 0.043436
+Time taken: 394.1507
+-----------------------
+Testing lambda 4
+Lambda = 4.3141e-06
+Extra testing time = 2.3096
+Percent error: 0.051282
+Time taken: 351.2606
+-----------------------
+-----------------------
+Lambda chosen: 1.0139e-06
+Perc error: 0.037743
+Time taken: 1564.9748
+-------------------
+-------------------
+Lambda for mnist8m with sigma 0.350 is 0.000

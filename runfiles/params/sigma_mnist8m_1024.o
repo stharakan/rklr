@@ -1,0 +1,19 @@
+/work/03158/tharakan/research/rklr
+MATLAB is selecting SOFTWARE OPENGL rendering.
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+              R2019a Update 1 (9.6.0.1099231) 64-bit (glnxa64)
+                               April 12, 2019
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+Precomputing ...
+Sig range: 0.36219 to 0.66155
+Sigma = 0.36219, Err = 0.17758
+Sigma = 0.42077, Err = 0.094037
+---------------------
+Tol 1 found at step 2 Sigma = 0.42077
+Sigma for mnist8m with tolerance miss of 0.006 is 0.421

@@ -1,0 +1,53 @@
+/work/03158/tharakan/research/rklr
+MATLAB is selecting SOFTWARE OPENGL rendering.
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+              R2019a Update 1 (9.6.0.1099231) 64-bit (glnxa64)
+                               April 12, 2019
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+Oneshot took 3.2454 seconds
+Decomp err 0.17774
+Time to decompose inner matrix: 0.24779
+
+lambdas =
+
+   1.0e-04 *
+
+    0.0493    0.0961    0.2233    0.4434
+
+Testing lambda 1
+Lambda = 4.9287e-06
+Extra testing time = 0.054777
+Percent error: 0.0089
+Time taken: 4.7198
+-----------------------
+Testing lambda 2
+Lambda = 9.6104e-06
+Extra testing time = 0.067887
+Percent error: 0.0133
+Time taken: 3.1694
+-----------------------
+Testing lambda 3
+Lambda = 2.2332e-05
+Extra testing time = 0.06077
+Percent error: 0.0193
+Time taken: 3.5442
+-----------------------
+Testing lambda 4
+Lambda = 4.4342e-05
+Extra testing time = 0.061924
+Percent error: 0.02575
+Time taken: 2.1031
+-----------------------
+-----------------------
+Lambda chosen: 4.9287e-06
+Perc error: 0.0089
+Time taken: 13.5584
+-------------------
+-------------------
+Lambda for sphere4 with sigma 0.560 is 0.000
