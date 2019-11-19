@@ -14,5 +14,5 @@ else
 end
 addpath(libsvm_dir);
 
-runfile_dir='./../runfiles/'
+runfile_dir='./../runfiles/';
 
