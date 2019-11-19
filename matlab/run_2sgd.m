@@ -110,7 +110,7 @@ for r = 1:length(ranks)
 		% choose direction and update
 		step_size = step_size0 / (1 + step_size1 * j);
 		updateW = - step_size * (residue * train_batch_X' / batch_size + reg_param * W(:, w_idx));
-		%updateW = updateW/ preconditioner;
+		updateW = updateW/ preconditioner;
 		fprintf('Gradient norm = %g\n', norm(updateW*train_batch_X,'fro'));
 		W(:, w_idx) = W(:, w_idx) + updateW;
 		
