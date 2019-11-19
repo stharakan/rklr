@@ -78,6 +78,20 @@ if strcmp(dname,'sphere4')
     data.Ytest = data.Ytest;
 end
 
+yys = unique(data.Ytrain);
+if ( min(data.Ytrain(:)) <= 0) | ( max(data.Ytrain(:)) > length(yys) )
+    Y2 = zeros(size(data.Ytrain));
+    Y2t= zeros(size(data.Ytest));
+
+    for ii = 1:length(yys)
+        Y2( data.Ytrain == yys(ii) ) = ii;    
+        Y2t( data.Ytest == yys(ii) ) = ii;
+    end    
+
+    data.Ytrain = Y2;
+    data.Ytest = Y2t;
+end
+
 % Ensure single
 data.Xtrain = single(data.Xtrain);
 data.Xtest = single(data.Xtest);

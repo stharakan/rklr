@@ -50,6 +50,6 @@ T_cg = table( iter_list,cumsum(klr.it_times(:)), klr.tst_errs(:),klr.grd_errs(:)
 
 
 fname = [runfile_dir,'stats/',dataset,'.prec-exp.r',num2str(rank),'.mat'];
-save(fname,'T_pcg','T_cg','options','sigma','dataset');
+save(fname,'T_pcg','T_cg','options','sigma','dataset','lambda');
 
 end
