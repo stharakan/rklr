@@ -1,4 +1,4 @@
-function [T] = run_N_experiments(dataset,sigma,lambda)
+function [T] = run_N_experiments(dataset,sigma,lambda,base_rank)
 %RUN_N_EXPERIMENTS should loop over ranks and N choices
 % and calculate runtimes + accuracies for each combination.
 % Finally, it should print a table of N,rank,accuracy,time.
@@ -21,7 +21,7 @@ options.outer_its = 5;
 options.ws = 0;
 
 % Set up N's and ranks
-base_ranks = [32,64];
+base_ranks = [base_rank, 2* base_rank, 4*base_rank];
 ranks = repmat(base_ranks(:)',4,1);
 ranks = ranks(:);
 NNs = [ base_ranks(:)*10, repmat( [NN/4,NN/2,NN], length(base_ranks),1)]';
