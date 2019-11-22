@@ -10,9 +10,9 @@ MATLAB is selecting SOFTWARE OPENGL rendering.
 To get started, type doc.
 For product information, visit www.mathworks.com.
  
-Oneshot took 3.2454 seconds
+Oneshot took 3.1941 seconds
 Decomp err 0.17774
-Time to decompose inner matrix: 0.24779
+Time to decompose inner matrix: 0.27694
 
 lambdas =
 
@@ -22,32 +22,32 @@ lambdas =
 
 Testing lambda 1
 Lambda = 4.9287e-06
-Extra testing time = 0.054777
+Extra testing time = 0.060226
 Percent error: 0.0089
-Time taken: 4.7198
+Time taken: 4.8647
 -----------------------
 Testing lambda 2
 Lambda = 9.6104e-06
-Extra testing time = 0.067887
+Extra testing time = 0.058523
 Percent error: 0.0133
-Time taken: 3.1694
+Time taken: 3.3189
 -----------------------
 Testing lambda 3
 Lambda = 2.2332e-05
-Extra testing time = 0.06077
+Extra testing time = 0.06026
 Percent error: 0.0193
-Time taken: 3.5442
+Time taken: 3.5488
 -----------------------
 Testing lambda 4
 Lambda = 4.4342e-05
-Extra testing time = 0.061924
+Extra testing time = 0.060516
 Percent error: 0.02575
-Time taken: 2.1031
+Time taken: 2.2455
 -----------------------
 -----------------------
 Lambda chosen: 4.9287e-06
 Perc error: 0.0089
-Time taken: 13.5584
+Time taken: 13.9977
 -------------------
 -------------------
 Lambda for sphere4 with sigma 0.560 is 0.000

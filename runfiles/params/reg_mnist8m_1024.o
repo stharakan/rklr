@@ -10,44 +10,44 @@ MATLAB is selecting SOFTWARE OPENGL rendering.
 To get started, type doc.
 For product information, visit www.mathworks.com.
  
-Oneshot took 122.4335 seconds
-Decomp err 0.20489
-Time to decompose inner matrix: 27.7496
+Oneshot took 117.8118 seconds
+Decomp err 0.086325
+Time to decompose inner matrix: 27.8058
 
 lambdas =
 
    1.0e-05 *
 
-    0.1014    0.1247    0.1987    0.4314
+    0.1438    0.1729    0.2763    0.6095
 
 Testing lambda 1
-Lambda = 1.0139e-06
-Extra testing time = 2.7922
-Percent error: 0.037743
-Time taken: 413.9876
+Lambda = 1.4383e-06
+Extra testing time = 2.3888
+Percent error: 0.03332
+Time taken: 424.8573
 -----------------------
 Testing lambda 2
-Lambda = 1.2473e-06
-Extra testing time = 2.3362
-Percent error: 0.039301
-Time taken: 404.9462
+Lambda = 1.7292e-06
+Extra testing time = 2.409
+Percent error: 0.034606
+Time taken: 411.1388
 -----------------------
 Testing lambda 3
-Lambda = 1.9872e-06
-Extra testing time = 2.7379
-Percent error: 0.043436
-Time taken: 394.1507
+Lambda = 2.7626e-06
+Extra testing time = 2.2303
+Percent error: 0.03841
+Time taken: 391.985
 -----------------------
 Testing lambda 4
-Lambda = 4.3141e-06
-Extra testing time = 2.3096
-Percent error: 0.051282
-Time taken: 351.2606
+Lambda = 6.0953e-06
+Extra testing time = 2.328
+Percent error: 0.046185
+Time taken: 364.2864
 -----------------------
 -----------------------
-Lambda chosen: 1.0139e-06
-Perc error: 0.037743
-Time taken: 1564.9748
+Lambda chosen: 1.4383e-06
+Perc error: 0.03332
+Time taken: 1592.888
 -------------------
 -------------------
-Lambda for mnist8m with sigma 0.350 is 0.000
+Lambda for mnist8m with sigma 0.420 is 0.000
