@@ -24,7 +24,7 @@ end
 % Set options
 options.tol_meth = 'tst';
 options.grd_tol = 0.0001;
-options.inv_meth = 'dpcg';
+options.inv_meth = 'lpcg';
 options.pr_flag = true;
 options.ws = 0;
 options.outer_its = iters;
@@ -128,7 +128,7 @@ for r = 1:length(ranks)
 	if p_flag
 	
 		eff_rank = KA.rnk;
-		tab_file = [runfile_dir,dname,'-eff_rank',num2str(eff_rank)];
+		tab_file = [runfile_dir,dname,'-l-eff_rank',num2str(eff_rank)];
 		if ~ws_flag
 			wstimes = [];
 			wserrs = [];

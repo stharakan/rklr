@@ -154,7 +154,7 @@ for r = 1:length(ranks)
 		diary off
 		
 		eff_rank = rank * 4;
-		tab_file = [runfile_dir,dname,'-eff_rank',num2str(eff_rank)];
+		tab_file = [runfile_dir,dname,'-l-eff_rank',num2str(eff_rank)];
 
 		s = ['\n \\multirow{7}{*}{\\begin{tabular}[c]{@{}c@{}}2SGD \\\\ $\\rank = ', ...
 			num2str(rank),' $ \\end{tabular}}     & Iter   & $E_{tst}$  & $T$  & Iter', ... 
