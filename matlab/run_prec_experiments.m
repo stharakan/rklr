@@ -1,4 +1,4 @@
-function [T_cg, T_pcg] = run_prec_experiments(dataset,sigma,lambda,rank)
+function [T_cg, T_pcg,T_lpcg] = run_prec_experiments(dataset,sigma,lambda,rank)
 %RUN_PREC_EXPERIMENTS runs the klr solver on the dataset dataset
 %with no rank continuation and at the given bandwidth sigma, 
 %regularization lambda. The solver is run with and without preconditioning,
@@ -41,6 +41,17 @@ iter_list = [0:klr.iter]';
 T_pcg = table( iter_list,cumsum(klr.it_times(:)), klr.tst_errs(:),klr.grd_errs(:), ...
     'VariableNames',{'Iteration','Time','Err','Gradient'});
     
+
+% run klr (w/ second type of precond
+options.inv_meth = 'lpcg';
+klr = KLRSolver(KA,data,lambda,[],options);
+klr = klr.KLR_Solve();
+iter_list = [0:klr.iter]';
+T_lpcg = table( iter_list,cumsum(klr.it_times(:)), klr.tst_errs(:),klr.grd_errs(:), ...
+    'VariableNames',{'Iteration','Time','Err','Gradient'});
+
+
+
 options.inv_meth = 'cg';
 klr = KLRSolver(KA,data,lambda, [],options);
 klr = klr.KLR_Solve();
@@ -50,6 +61,6 @@ T_cg = table( iter_list,cumsum(klr.it_times(:)), klr.tst_errs(:),klr.grd_errs(:)
 
 
 fname = [runfile_dir,'stats/',dataset,'.prec-exp.r',num2str(rank),'.mat'];
-save(fname,'T_pcg','T_cg','options','sigma','dataset','lambda');
+save(fname,'T_pcg','T_cg','T_lpcg','options','sigma','dataset','lambda');
 
 end
