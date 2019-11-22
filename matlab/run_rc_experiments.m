@@ -30,7 +30,7 @@ T_sgd = run_2sgd(1,eff_rank/4,dataset,sigma,lambda,data);
 
 
 % Table assembly?
-fname = [runfile_dir,'stats/',dataset,'.rc-exp.r', num2str(eff_rank),'.mat'];
+fname = [runfile_dir,'stats/',dataset,'.rc-d-exp.r', num2str(eff_rank),'.mat'];
 save(fname,'T_nys','T_ens','T_dns','T_sgd','sigma','dataset');
 
 end
