@@ -4,6 +4,7 @@
 dataarray=('sphere4' 'mnist8m' 'brats17')
 bwarray=(0.56 0.42 0.35) 
 regarray=(4.9E-6 1.0E-6 9.4E-8)
+
 rank=1024
 
 
