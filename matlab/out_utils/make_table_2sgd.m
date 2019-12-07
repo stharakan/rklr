@@ -3,6 +3,7 @@ function [] = make_table_2sgd(fid,times,errs,varargin)
 ll = length(varargin);
 ws = 0;
 its = [1,10,20,30,40,50];
+it_idx = 1:length(times);
 
 if ll == 2
     wtimes = varargin{1};
@@ -14,7 +15,8 @@ end
 
 
 
-for it = its
+for idx = it_idx
+    it = its(idx);
     if ws
         if it == ws
             fprintf(fid,' & W & %.3g & %.3g & -- & -- & -- \\\\ \n', ...
@@ -28,9 +30,9 @@ for it = its
         end
     else
         if it == 50
-            fprintf(fid,' & -- & -- & -- & %d & %.3g & %.3g \\\\ \\hline \n', it, errs(it),times(it));
+            fprintf(fid,' & -- & -- & -- & %d & %.2E & %.3g \\\\ \\hline \n', it, errs(idx),times(idx));
         else
-            fprintf(fid,' & -- & -- & -- & %d & %.3g & %.3g \\\\ \n', it, errs(it),times(it));
+            fprintf(fid,' & -- & -- & -- & %d & %.2E & %.3g \\\\ \n', it, errs(idx),times(idx));
         end
     end
 end

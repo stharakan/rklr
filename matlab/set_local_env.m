@@ -1,10 +1,10 @@
 
-addpath('./data_utils/');
-addpath('./gen_utils/');
-addpath('./out_utils/');
+
+
 
 if contains(computer,'mac','IgnoreCase',true)
     % On my local machine
+    this_dir = '/Users/stharakan/Documents/rklr/matlab/';
     data_dir = '/Users/stharakan/Documents/local_data/';
     libsvm_dir = '/Users/stharakan/Documents/lib/libsvm-master/matlab';
 else
@@ -14,5 +14,8 @@ else
 end
 addpath(libsvm_dir);
 
-runfile_dir='./../runfiles/';
+addpath('./data_utils/');
+addpath('./gen_utils/');
+addpath('./out_utils/');
+runfile_dir=[this_dir,'/../runfiles/'];
 
