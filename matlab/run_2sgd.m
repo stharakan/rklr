@@ -36,6 +36,10 @@ testY(tl_idx) = 1;
 Xtrain = data.Xtrain;
 Ytrain = data.Ytrain;
 ntr = size(Xtrain,1);
+shuffle_idx = randperm(ntr);
+Xtrain = Xtrain(shuffle_idx,:);
+Ytrain = Ytrain(shuffle_idx,:);
+
 Xtrain = Xtrain';
 
 trainY = zeros(k, ntr, 'single');
