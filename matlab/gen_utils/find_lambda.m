@@ -24,43 +24,36 @@ switch ll
         save_file = varargin{2};
         save_flag = isempty(save_file);
 end
-
-if isa(X,'struct')
-    if isfield(X,'data')
-        disp('data.data was a field');
-        data = X.data;
-    end
-    save_flag = false;
+if isa(X,'KernApprox')
+    KA = X;
+    data = y;
 else
-    % Split data
-    [Xtrn,Xtst,Ytrn,Ytst] = split8020(X,y);
-    data.Xtrain = Xtrn;
-    data.Xtest = Xtst;
-    data.Ytrain = Ytrn;
-    data.Ytest = Ytst;
-    if save_flag
-        save(save_file,'-v7.3','data');
+    if isa(X,'struct')
+        if isfield(X,'data')
+            disp('data.data was a field');
+            data = X.data;
+        end
+        save_flag = false;
+    else
+        % Split data
+        [Xtrn,Xtst,Ytrn,Ytst] = split8020(X,y);
+        data.Xtrain = Xtrn;
+        data.Xtest = Xtst;
+        data.Ytrain = Ytrn;
+        data.Ytest = Ytst;
+        if save_flag
+            save(save_file,'-v7.3','data');
+        end
+
     end
+
+    % Compute nystrom
+    samp = rank;
+	KA = OneShot(data.Xtrain,data.Ytrain,samp,rank,sigma);
+    disp(['Oneshot took ',num2str(KA.decomp_time),' seconds']);
 end
 
 [n,d] = size(data.Xtrain);
-
-% Nystrom
-
-tic;
-if isfield(X,'KA')
-    KA = X.KA;
-else
-    samp = rank;
-		KA = OneShot(data.Xtrain,data.Ytrain,samp,rank,sigma);
-    disp(['Oneshot took ',num2str(KA.decomp_time),' seconds']);
-		kerr = KA.matvec_errors(10);
-		disp(['Decomp err ', num2str(kerr)]);
-    if save_flag
-        save(save_file,'-v7.3','KA','-append');
-    end
-end
-
 num_loops = 1;
 
 % Generate kde guess
@@ -69,7 +62,6 @@ theta_k = theta_kde;
 nc = length(theta_k);
 c = nc/n;
 mc = rank*c;
-theta = zeros(nc,3);
 
 % Get spectrum of inner matrix
 tic;

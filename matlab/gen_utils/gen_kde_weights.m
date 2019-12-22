@@ -8,17 +8,17 @@ nn = length(Ytrain);
 noloop = true;
 
 if noloop
-	uYmat = repmat( (uY(1:(end-1)))', nn, 1);
-	Ymat = repmat( Ytrain, nc-1, 1);
+	uYmat = repmat( (uY)', nn, 1);
+	Ymat = repmat( Ytrain, nc, 1);
 
 	theta = Ymat == uYmat(:);
 	theta = theta./nn;
 
 else
 
-	theta = zeros((nc - 1)*nn,1,'single');
+	theta = zeros((nc)*nn,1,'single');
 
-	for i=1:(nc-1) %load up thetas for this class
+	for i=1:(nc) %load up thetas for this class
 		start_idx = (i-1)*nn + 1;
 		end_idx = i*nn;
 
