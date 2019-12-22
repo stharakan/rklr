@@ -16,9 +16,9 @@ classdef OneShot < KernApprox
     
     methods
         % Constructor
-        function obj = OneShot(Xtr,Ytr,samp,rank,sig)
+        function obj = OneShot(Xtr,Ytr,samp,rank,sig,varargin)
             % call superconstructor
-            obj@KernApprox(Xtr,Ytr,sig);
+            obj@KernApprox(Xtr,Ytr,sig,varargin{:});
             
             % deal with samp being given as smp_idx, rank not there
             ll = length(samp);
@@ -43,9 +43,9 @@ classdef OneShot < KernApprox
             [UU,ll,Uss] = one_shot(obj.Xtrain, ...
                 obj.smp_idx,obj.kernelfun);
             obj.decomp_time = toc;
-            obj.U = UU;
-            obj.l = ll;
-            obj.Us = Uss;
+            obj.U = UU(:,1:rank);
+            obj.l = ll(1:rank);
+            obj.Us = Uss(:,1:rank);
             
         end
         

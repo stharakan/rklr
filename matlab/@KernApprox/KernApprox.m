@@ -18,7 +18,7 @@ classdef KernApprox
     
     methods
         % Constructors
-        function obj = KernApprox(Xtr,Ytr,sig)
+        function obj = KernApprox(Xtr,Ytr,sig,varargin)
             % do nothing with zero arg case
             if nargin > 0
                 % initialize
@@ -38,8 +38,14 @@ classdef KernApprox
                 
                 % deal with sigma
                 obj.sigma = sig;
-                obj.kernelfun = @(x,y) gaussiankernel(x,y,sig);
                 
+                
+                %obj.kernelfun = @(x,y) gaussiankernel(x,y,sig);
+                if isempty(varargin)
+                    obj.kernelfun = @(x,y) gaussiankernel(x,y,sig);
+                else
+                    obj.kernelfun = varargin{1};
+                end
             end
             
         end
