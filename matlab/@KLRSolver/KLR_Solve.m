@@ -10,6 +10,11 @@ obj_time = toc;
 %f = klr.f0;
 %size(klr.Kt)
 
+if klr.ws
+    klr = klr.KLR_WarmStart();
+end
+
+
 % Loop over outer iterations
 for ii = 1:klr.outer_its
     klr.iter = klr.iter + 1;

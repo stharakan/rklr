@@ -404,6 +404,14 @@ classdef KLRSolver
             tKA = obj.KA.Truncate(trank);
             trun = KLRSolver(tKA,obj.data,obj.lambda,tTh,options);       
         end
+
+        % assemble table from outputs
+        function [T] = AssembleTable(obj)
+            iters = [-obj.ws:obj.iter]';
+            cum_times = cumsum(obj.it_times(:));
+            T = table(iters,obj.tst_errs(:),cum_times + obj.KA.decomp_time,'VariableNames', ...
+                {'Iters','Errs','Time'});
+        end
     end
     
 end
