@@ -150,7 +150,7 @@ for r = 1:length(ranks)
 		fprintf('---tot time: %f\n', tottime)
 	end
 
-	if p_flag
+	if 0  
 		diary off
 		
 		eff_rank = rank * 4;

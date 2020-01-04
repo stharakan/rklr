@@ -130,7 +130,7 @@ for r = 1:length(ranks)
         T = outerjoin(T, T_ws, 'Keys','Iters');
 	end
 	
-	if p_flag
+	if 0 
 	
 		eff_rank = KA.mm;
 		tab_file = [runfile_dir,dname,'-l-eff_rank',num2str(eff_rank)];
