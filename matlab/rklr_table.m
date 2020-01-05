@@ -1,6 +1,6 @@
-function [T] = rklr_table(KA,lambda,options,data)
+function [T] = rklr_table(KA,data,lambda,theta,options)
 
-	klr = rklr(KA,data,lambda,[],options);
+	klr = rklr(KA,data,lambda,theta,options);
 
     % Assemble table?
     T = klr.AssembleTable();
