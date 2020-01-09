@@ -9,13 +9,10 @@ set_local_env;
 
 % Load data
 data = dataload(dataset);
-Xtrain = data.Xtrain;
-Ytrain = data.Ytrain;
-NN = size(Xtrain,1);
+NN = size(data.Xtrain,1);
 
 % Set up options
 options.pr_flag = true;
-options.inv_meth = 'dpcg';
 options.outer_its = 10;
 options.inner_its = 50;
 options.ws = 0;
@@ -35,30 +32,16 @@ disp(['Oneshot err ', num2str(kerr)]);
 disp('---------------------------------');
 
 % run klr (first w/ preconditioning)
-klr = KLRSolver(KA,data,lambda,[],options);
-klr = klr.KLR_Solve();
-iter_list = [0:klr.iter]';
-T_pcg = table( iter_list,cumsum(klr.it_times(:)), klr.tst_errs(:),klr.grd_errs(:), ...
-    'VariableNames',{'Iteration','Time','Err','Gradient'});
-    
+options.inv_meth = 'dpcg';
+T_pcg = rklr_table(KA,data,lambda,[],options);
 
 % run klr (w/ second type of precond
 options.inv_meth = 'lpcg';
-klr = KLRSolver(KA,data,lambda,[],options);
-klr = klr.KLR_Solve();
-iter_list = [0:klr.iter]';
-T_lpcg = table( iter_list,cumsum(klr.it_times(:)), klr.tst_errs(:),klr.grd_errs(:), ...
-    'VariableNames',{'Iteration','Time','Err','Gradient'});
+T_lpcg = rklr_table(KA,data,lambda,[],options);
 
-
-
+% run klr w/o prec
 options.inv_meth = 'cg';
-klr = KLRSolver(KA,data,lambda, [],options);
-klr = klr.KLR_Solve();
-iter_list = [0:klr.iter]';
-T_cg = table( iter_list,cumsum(klr.it_times(:)), klr.tst_errs(:),klr.grd_errs(:), ...
-    'VariableNames',{'Iteration','Time','Err','Gradient'});
-
+T_cg = rklr_table(KA,data,lambda,[],options);
 
 fname = [runfile_dir,'stats/',dataset,'.prec-exp.r',num2str(rank),'.mat'];
 save(fname,'T_pcg','T_cg','T_lpcg','options','sigma','dataset','lambda');
