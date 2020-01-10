@@ -1,13 +1,13 @@
-function [T] = klr_ws_comparison(KA,lambda,options,data,ws)
+function [T] = rklr_ws_comparison(KA,data,lambda,theta,options,ws)
 
-    # Run klr w normal options
-    T = klr_table(KA,lambda,options,data);
+    % Run klr w normal options
+    T = rklr_table(KA,data,lambda,theta,options);
 
-    # adjust options
-    options.ws = ws
-    T_ws = klr_table(KA,lambda,options,data);
+    % adjust options
+    options.ws = ws;
+    T_ws = rklr_table(KA,data,lambda,theta,options);
 
-    # join tables
+    % join tables
     T = outerjoin(T, T_ws, 'Keys','Iters');
 
 

@@ -11,10 +11,6 @@ ll = length(varargin);
 % Load data if we don't have it
 if ll == 0
 	data = dataload(dname);
-	if strcmp(dname,'susy8d')
-		data.Ytrain(data.Ytrain == -1) = 0;
-		data.Ytest(data.Ytest == -1) = 0;
-	end
 	disp('Finished loading data ...');
 elseif ll == 1
 	data = varargin{1};

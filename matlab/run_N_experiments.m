@@ -48,8 +48,7 @@ for ri = 1:tot_runs
 
 
     % run klr
-	klr = KLRSolver(KA,data,lambda,[],options);
-	klr = klr.KLR_Solve();
+    klr = rklr(KA,data,lambda,[],options);
 
     % save accuracy and time
     timings(ri) = klr.times.tot + KA.decomp_time;

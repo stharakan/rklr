@@ -5,31 +5,40 @@ function [T_nys,T_ens,T_dns,T_sgd] = run_rc_experiments(dataset,sigma,lambda,eff
 % formulation. 
 
 fprintf('Beginning preconditioning experiments on %s dataset with sigma %5.3f and lambda %5.3f at rank %d\n',dataset,sigma,lambda,eff_rank);
+
+%% Base settings 
 ws = 4;
+batches = 4;
 set_local_env;
 
-% Load data
+%% Load data & subsample
 data = dataload(dataset);
-Xtrain = data.Xtrain;
-Ytrain = data.Ytrain;
-NN = size(Xtrain,1);
+data = subsample_10m(data,[],eff_rank);
 
-% subsample to 10m??
+%% Set options
+options.tol_meth = 'tst';
+options.grd_tol = 0.0001;
+options.inv_meth = 'dpcg';
+options.pr_flag = true;
+options.ws = 0;
+options.outer_its = 10;
 
-% Nystrom run
-T_nys = run_nys(1,eff_rank,dataset,sigma,lambda,ws, data);
+%% Nystrom run
+KA = ka_wrapper('OneShot',data.Xtrain,data.Ytrain,eff_rank,eff_rank,sigma);
+T_nys = rklr_ws_comparison(KA,data,lambda,[],options,ws);
 
-% Ensemble run
-T_ens = run_ens(1,eff_rank/4,dataset,sigma,lambda,ws,data);
+%% Ensemble run
+KA = ka_wrapper('EnsNyst',data.Xtrain,data.Ytrain,eff_rank/4,eff_rank/4,sigma,batches);
+T_ens = rklr_ws_comparison(KA,data,lambda,[],options,ws);
 
-% Diag run
-T_dns = run_dns(1,eff_rank/4,dataset,sigma,lambda,ws,data);
+%% Diag run
+KA = ka_wrapper('DiagNyst',data.Xtrain,data.Ytrain,eff_rank/4,eff_rank/4,sigma,batches);
+T_dns = rklr_ws_comparison(KA,data,lambda,[],options,ws);
 
-% 2SGD run
-T_sgd = run_2sgd(1,eff_rank/4,dataset,sigma,lambda,data);
+%% 2SGD run
+T_sgd = run_2sgd(0,eff_rank/4,dataset,sigma,lambda,data);
 
-
-% Table assembly?
+%% Table assembly
 fname = [runfile_dir,'stats/',dataset,'.rc-d-exp.r', num2str(eff_rank),'.mat'];
 save(fname,'T_nys','T_ens','T_dns','T_sgd','sigma','dataset');
 
