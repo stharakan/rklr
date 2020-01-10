@@ -16,9 +16,9 @@ classdef EnsNyst < KernApprox
     
     methods
         % Constructor
-        function obj = EnsNyst(Xtr,Ytr,samp,rank,sig,b)
+        function obj = EnsNyst(Xtr,Ytr,samp,rank,sig,b,varargin)
             % call superconstructor
-            obj@KernApprox(Xtr,Ytr,sig);
+            obj@KernApprox(Xtr,Ytr,sig,varargin{:});
             
             % deal with rank not there
             ll = length(samp);

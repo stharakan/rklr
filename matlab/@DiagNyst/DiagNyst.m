@@ -20,7 +20,7 @@ classdef DiagNyst < KernApprox
     
     methods
         % Constructor
-        function obj = DiagNyst(Xtr,Ytr,samp,rank,sig,b)
+        function obj = DiagNyst(Xtr,Ytr,samp,rank,sig,b,varargin)
             % First subsample Xtr and Ytr as needed
             n = size(Xtr,1);
             bsize = floor(n/b);
@@ -32,7 +32,8 @@ classdef DiagNyst < KernApprox
                 Xtr = Xtr(bidx,:);
                 Ytr = Ytr(bidx);
             end
-            obj@KernApprox(Xtr,Ytr,sig);
+            % call superconstructor
+            obj@KernApprox(Xtr,Ytr,sig,varargin{:});
            
             % deal with rank not there,init
             if isempty(rank)

@@ -13,7 +13,7 @@ sigma = 0.5;
 
 %% Compute Gaussian kernel decomposition
 % Gaussian kernel -- is default function
-KA_gaussian = OneShot(data.Xtrain,data.Ytrain,rank,rank,0.5);
+KA_gaussian = EnsNyst(data.Xtrain,data.Ytrain,rank,rank,0.5,2);
 gaussian_errors = KA_gaussian.matvec_errors(10);
 
 %% Decomposition with new kernel function
@@ -22,7 +22,7 @@ scale = 2; % set scale
 my_kernel = @(x,y) poly_kernel_2(x,y,scale); %dummy function below, can be in another file
 
 % create kernel approximation with new kernel function
-KA_my_kernel = OneShot(data.Xtrain,data.Ytrain,rank,rank,0.5,my_kernel);
+KA_my_kernel = EnsNyst(data.Xtrain,data.Ytrain,rank,rank,0.5,2,my_kernel);
 my_kernel_errors = KA_my_kernel.matvec_errors(10);
 
 %% Print results
