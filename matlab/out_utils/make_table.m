@@ -14,10 +14,8 @@ fprintf(fid,' & D & -- & %5.3g & D & -- & %5.3g \\\\ \n',dtime,dtime);
 
 if wflag
     ws_length = 4;
-    werrs 
-    wtimes
     for wi = 1:(ws_length)
-        fprintf(fid,' & W%d & %5.2E & %5.3g & -- & -- & -- \\\\ \n', wi,werrs(wi),wtimes(wi));
+	    fprintf(fid,' & W%d & %5.2E & %5.3g & -- & -- & -- \\\\ \n', wi,werrs(wi),wtimes(wi));
     end
 	%fprintf(fid,' & W & %5.2E & %5.3g & -- & -- & -- \\\\ \n', werrs(1),wtimes(1));
 	fprintf(fid,' & 1 & %5.2E & %5.3g & 1 & %5.2E & %5.3g \\\\ \n', ...
