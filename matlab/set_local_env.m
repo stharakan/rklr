@@ -9,6 +9,7 @@ if contains(computer,'mac','IgnoreCase',true)
     libsvm_dir = '/Users/stharakan/Documents/lib/libsvm-master/matlab';
 else
     % on a tacc computer
+    this_dir = '/work/03158/tharakan/research/rklr/matlab/';
     data_dir = '/work/03158/tharakan/data/';
     libsvm_dir = '/work/03158/tharakan/lib/libsvm-master/matlab';
 end
