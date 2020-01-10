@@ -4,7 +4,10 @@
 dataarray=('sphere4' 'mnist8m' 'brats17')
 bwarray=(0.56 0.42 0.35) 
 regarray=(4.9E-6 1.0E-6 9.4E-8)
-rank=1024
+dataarray=('mnist8m')
+bwarray=(0.42) 
+regarray=(1.0E-6)
+rank=4096
 
 
 for ((i=0;i<${#dataarray[@]};++i)); do
@@ -20,7 +23,7 @@ for ((i=0;i<${#dataarray[@]};++i)); do
 #SBATCH -N 1                # number of nodes requested
 #SBATCH -n 1               # total number of mpi tasks requested
 #SBATCH -p largemem512GB   
-#SBATCH -t 2:00:00         # run time (hh:mm:ss) - 1.5 hours
+#SBATCH -t 4:00:00         # run time (hh:mm:ss) - 1.5 hours
 # Slurm email notifications are now working on Lonestar 5 
 #SBATCH --mail-user=sameer@ices.utexas.edu
 #SBATCH --mail-type=end     # email me when the job finishes
