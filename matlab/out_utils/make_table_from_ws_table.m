@@ -18,5 +18,5 @@ wserrs = wserrs(2:end);
 errs = errs(2:end);
 
 
-make_table(fid,dtime,wstimes,wserrs,times,errs);
+make_compact_table(fid,dtime,wstimes,wserrs,times,errs);
 end
