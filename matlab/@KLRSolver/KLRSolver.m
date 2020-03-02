@@ -374,6 +374,16 @@ classdef KLRSolver
             err = sum(obj.labels(ycl) ~= Yoth)/noth;
             
         end
+
+
+        % Simple predict function
+        function [ycl,probs] = predict_proba(obj,Xoth)
+            Koth = obj.KA.SKernel(Xoth);
+            probs = obj.KLR_Prob(obj.theta,Koth);
+            [~,ycl] = max(probs,[],2);
+        end
+
+            
         
         % Finding direction function
         function [y,obj] = FindDir(obj,b,Pr)
